@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class Graph{
 	
@@ -33,5 +34,27 @@ public class Graph{
         if(parent != null && child != null){  
         	parent.createEdge(child,costEdge);//Indica que no esta dirigido el nodo
         }
+    }
+
+    public Vertex beginVertex(){
+        return this.listVertex.get(0);
+    }
+
+    public void dfs(){
+        Vertex begin = this.listVertex.get(0);
+        Stack s = new Stack();
+        s.push(begin);
+        begin.visited = true;
+        while (! s.empty()){
+            Vertex u = s.peek();
+            Vertex w = u.firstUnvisited();
+            if (w != null){
+                w.visited = true;
+                s.push(w);
+            }else{
+                s.pop();
+            }
+        }
+
     }
 }

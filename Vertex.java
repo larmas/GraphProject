@@ -22,4 +22,7 @@ public class Vertex{
     public LinkedList<Edge> getAdjacents (){
     	return this.listAdj;
     }
+
+    public Vertex firstUnvisited(){
+    }
 }
