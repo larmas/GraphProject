@@ -4,9 +4,10 @@
 ///////////////////////////////////////////////////////////////////////
 
 public class ExceptionGraph extends Exception {
+	
 	/*Constructor de la clase*/
     public ExceptionGraph(String s) {
         super(s);
-    }  // fin constructor
+    } 	// fin constructor
 
-}  // fin clase ExceptionGraph
+}// fin clase ExceptionGraph

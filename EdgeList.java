@@ -1,3 +1,8 @@
+//////////////////////////////////////////////////////////////////////////////
+//------------Clase utilizada para redefinir los metodos de la--------------//
+//------------clase LinkedList en terminos de una arista--------------------//
+//////////////////////////////////////////////////////////////////////////////
+
 import java.util.LinkedList;
 
 public class EdgeList<T> extends LinkedList<Edge<T>>{
@@ -6,18 +11,17 @@ public class EdgeList<T> extends LinkedList<Edge<T>>{
 		super();
 	}
 	
-	/*Redefino el metodo contains en terminos de un vertex<T>*/
+	/* Redefino el metodo contains en terminos de un vertex<T> */
 	public boolean contains(Vertex<T> a){	
 		int i=0;							
 		while ((i<this.size()) && (this.get(i).dest.element!=a.element)){
 			i++;
 		}
 		return (i<this.size());
-
 	}
 	
-	/*Redefino el remove(object o) en terminos de un vertex<T>*/
-	public boolean remove(Vertex<T>a){ 
+	/*Redefino el metodo remove(object o) en terminos de un vertex<T>*/
+	public boolean remove(Vertex<T>a){
 		int i=0;						
 		while ((i<this.size()) && (this.get(i).dest.element!=a.element)){
 			i++;
@@ -30,4 +34,4 @@ public class EdgeList<T> extends LinkedList<Edge<T>>{
 			return false;
 		}
 	}
-}//fin de la clase EdgeList<T>
+}//Fin de la clase EdgeList<T>

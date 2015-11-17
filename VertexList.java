@@ -1,3 +1,8 @@
+//////////////////////////////////////////////////////////////////////////////
+//------------Clase utilizada para redefinir los metodos de la--------------//
+//------------clase LinkedList en terminos de un vertice--------------------//
+//////////////////////////////////////////////////////////////////////////////
+
 import java.util.LinkedList;
 
 public class VertexList<T> extends LinkedList<Vertex<T>> {
@@ -15,7 +20,7 @@ public class VertexList<T> extends LinkedList<Vertex<T>> {
 		return (i<this.size());
 	}
 	
-	/*Redefino el metodo remove(object o) en terminos de un vertex<T>*/
+	/*Redefino el remove(object o) en terminos de un vertex<T>*/
 	public boolean remove(Vertex<T>a){  
 		int i=0;						
 		while ((i<this.size()) && (this.get(i).element!=a.element)){
