@@ -12,21 +12,20 @@ public class TestGraph {
 		d=new Vertex<Integer>(4);
 		e=new Vertex<Integer>(5);
 		
-		System.out.println(test.empty());			//true *1
+		System.out.println(test.empty());			//Debe devolver True (1)
 
-		test.insert(a);								//inserto todos los vertices menos e (5)
+		test.insert(a);								//inserto todos los vertices menos e
 		test.insert(b);
 		test.insert(c);
 		test.insert(d);
+		System.out.println(test.empty());			//Debe devolver false (2)
+		System.out.println(test.belongs(a));		//Debe devolver true (3)
+		System.out.println(test.belongs(e));		//Debe devolver false (4)
 
-		System.out.println(test.empty());			//false *2
-		System.out.println(test.belongs(a));		//true *3
-		System.out.println(test.belongs(e));		//false *4
-
-		test.insert(e);								//inserto nodo faltante
+		test.insert(e);								//Inserto vertice faltante
 
 		try{
-			test.connect(a,b,1);						//conecto y defino pesos de aristas
+			test.connect(a,b,1);						//Conecto y defino pesos de aristas
 			test.connect(b,c,2);
 			test.connect(b,d,3);
 			test.connect(c,d,4);
@@ -39,75 +38,74 @@ public class TestGraph {
 			System.out.println(z.getMessage());
 		}
 
-		//pruebo contar vert, contar aristas, existe arista
+		//Pruebo contar vert, contar aristas, existe arista
 
-		System.out.println(test.connected(a,b));	//true *5
-		System.out.println(test.connected(a,d));	//false *6
-		System.out.println(test.vertQ());			//5 *8
-		System.out.println(test.edgeQ());			//9 *9
+		System.out.println(test.connected(a,b));	//Debe devolver true (5)
+		System.out.println(test.connected(a,d));	//Debe devolver false (6)
+		System.out.println(test.vertQ());			//Debe devolver 5 (8)
+		System.out.println(test.edgeQ());			//Debe devolver 9 (9)
 		
 		//Pruebo dfs, dfsRec y prims
 
 		try{
-			test.dfs(b);				//23451	*10
-			test.dfsRec(a); 			//12345	*11
-			test2=test.prims(d);
-			test2.dfsRec(b);			//23451 *13
+			test.dfs(b);				//Debe devolver 23451 (10)
+			test.dfsRec(a); 			//Debe devolver 12345 (11)
+			test2=test.prims(c);		//Debe devolver 34512 (12)
+			test2.dfsRec(b);			//Debe devolver 23451 (13)
 		}catch(ExceptionGraph z){
 			System.out.println(z.getMessage());
 		}
 
 		try{
-			test.delVert(c);			//elimino c
+			test.delVert(c);			//Elimino el vertice c
 		}catch(ExceptionGraph z){
 			System.out.println(z.getMessage());
 		}
 
 		try{
-			test.dfs(b);				//245 *14
-			test.dfsRec(a);				//1245 *15
+			test.dfs(b);				//Debe devolver 245 (14)
+			test.dfsRec(a);				//Debe devolver 1245 (15)
 		}catch(ExceptionGraph z){
 			System.out.println(z.getMessage());
 		}
 		try{
-			test2=test.prims(d);
+			test2=test.prims(b);//Debe devolver 245 (16) 
 		}catch(ExceptionGraph z){
 			System.out.println(z.getMessage());
 		}
-		test2=test;  //Haciendo esto se soluciona el problema de la excepcion (pero no es lo mismo que test2=test.prims(d) 
+		
 		try{
-			test2.dfsRec(b);			//245 *16    
-		}catch(ExceptionGraph z){
-			System.out.println(z.getMessage());
-		}
-
-		try{
-			test.delEdge(d,e);			//elimino arista d-e
+			test2.dfsRec(d);			//Debe devolver 45 (17)   
 		}catch(ExceptionGraph z){
 			System.out.println(z.getMessage());
 		}
 
 		try{
-			test.dfs(b);				//24  *17
+			test.delEdge(d,e);			//Elimino arista d-e
+		}catch(ExceptionGraph z){
+			System.out.println(z.getMessage());
+		}
+
+		try{
+			test.dfs(b);				//Debe devolver 24  (18)
 		}catch(ExceptionGraph z){
 			System.out.println(z.getMessage());
 		}
 		try{
-			test.dfsRec(a);
+			test.dfsRec(a);				//Debe devolver 124 (19)
 		}catch(ExceptionGraph z){
 			System.out.println(z.getMessage());
 		}
 		try{
-			test2=test.prims(d);		//124 *18
+			test2=test.prims(b);		//Debe devolver 24 (20)
 		}catch(ExceptionGraph z){
 			System.out.println(z.getMessage());
 		}
-		test2=test;  //Haciendo esto se soluciona el problema de la excepcion (pero no es lo mismo que test2=test.prims(d) 
+		
 		try{
-			test2.dfsRec(b);			//24  *19
+			test2.dfsRec(d);			//Debe devolver 4  (21)
 		}catch(ExceptionGraph z){
 			System.out.println(z.getMessage());
 		}
 	}
-
-}
+}//fin de la clase TestGraph

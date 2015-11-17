@@ -1,24 +1,29 @@
+////////////////////////////////////////////////////////////////////////////
+//----------------Clase que define los vertices del grafo----------------//
+////////////////////////////////////////////////////////////////////////////
 
 public class Vertex<T> {
-	T element;
-	boolean mark;
-	EdgeList<T> adjVertex;
-	//Vertex Back;
-	
+	T element;     //Nombre o identificador del vertice
+	boolean mark;  //Variable auxiliar
+	EdgeList<T> adjVertex;	//Lista de vertices adyacentes
+
+	/*Constructor de la clase*/
 	public Vertex(T a){
 		this.element = a;
 		this.mark = false;
 		this.adjVertex = new EdgeList<T>();
 	}
 	
+	/*Insertar un vertice en la lista de adyacencia*/
 	public void ins(Vertex<T> a, int cost){
 		if (!adjVertex.contains(a)){		//si no contiene el vertex a
-			Edge<T> x= new Edge<T>(a,cost);	//lo agrega a la llista de adyacencia
+			Edge<T> x= new Edge<T>(a,cost);	//lo agrega a la lista de adyacencia
 			this.adjVertex.add(x);
 		}
 	}
 	
-	public Vertex<T> nextAdj(){			//siguiente adyacente no marcado
+	/*Devuelve el siguiente vertice no marcado en la lista*/
+	public Vertex<T> nextAdj(){			
 		if (this.adjVertex.size()==0){		//verifico tamaño distinto de 0
 			return null;
 		}
@@ -35,4 +40,4 @@ public class Vertex<T> {
 			}
 		}
 	}
-}
+}//Fin de la clase Vertex<T>
